@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "weight_policy": {
+    "version": 1,
+    "basis": "business_priority",
+    "core_min_share": 0.5
+  },
+  "gate_tests": [
+    "test_outputs.py::test_output_contract_creates_three_artifacts"
+  ],
+  "tests": {
+    "test_outputs.py::test_assignment_recovers_hidden_batch_membership": {
+      "weight": 0.145,
+      "priority": "core",
+      "rationale": "yel-004 的未知对象恢复、领域求解和失败安全必须优先获得业务权重。"
+    },
+    "test_outputs.py::test_component_weights_are_nonnegative_and_normalized": {
+      "weight": 0.145,
+      "priority": "core",
+      "rationale": "yel-004 的未知对象恢复、领域求解和失败安全必须优先获得业务权重。"
+    },
+    "test_outputs.py::test_arrhenius_parameters_are_recovered_for_each_batch": {
+      "weight": 0.145,
+      "priority": "core",
+      "rationale": "yel-004 的未知对象恢复、领域求解和失败安全必须优先获得业务权重。"
+    },
+    "test_outputs.py::test_formula_uses_hill_order_and_compact_counts": {
+      "weight": 0.145,
+      "priority": "core",
+      "rationale": "yel-004 的未知对象恢复、领域求解和失败安全必须优先获得业务权重。"
+    },
+    "test_outputs.py::test_success_output_channels_are_silent": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_top_level_keys_reject_missing_field": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_component_keys_reject_extra_field": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_sample_keys_reject_missing_field": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_batch_keys_reject_extra_field": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_spectrum_length_accepts_five_values": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_spectrum_length_rejects_four_values": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_conversion_length_accepts_four_values": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_duplicate_identifiers_are_refused": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_boolean_schema_version_is_refused": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_maximum_sample_count_is_supported": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_maximum_batch_count_is_supported": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_aggregate_mass_must_match_partition": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_report_bytes_end_with_newline": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_report_key_set_is_exact": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_assignment_item_key_set_is_exact": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_batch_item_key_set_is_exact": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_formula_item_key_set_is_exact": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_summary_key_set_is_exact": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_repeated_run_keeps_report_bytes": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_repeated_run_does_not_append_ledger": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_changed_digest_appends_ledger": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_ledger_line_has_exact_keys": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_checkpoint_has_exact_keys": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_missing_key_is_refused": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_duplicate_json_key_is_refused": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_refusal_uses_fixed_stderr_prefix": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    },
+    "test_outputs.py::test_refusal_preserves_existing_artifacts": {
+      "weight": 0.015,
+      "priority": "supporting",
+      "rationale": "yel-004 的该结构或边界行为保护交付结果的完整性和可追溯性。"
+    }
+  }
+}
