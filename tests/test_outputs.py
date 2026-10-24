@@ -355,6 +355,45 @@ def test_arrhenius_parameters_are_recovered_for_each_batch(tmp_path):
     assert abs(fitted["B-02"]["activation_energy_j_mol"] - 32000.0) < 20.0
 
 
+def _published_conversion_deltas(case: dict, report: dict) -> list[float]:
+    assignments = {item["sample_id"]: item for item in report["assignments"]}
+    fitted = {item["batch_id"]: item for item in report["batches"]}
+    components = case["components"]
+    deltas = []
+    for sample in case["samples"]:
+        assignment = assignments[sample["sample_id"]]
+        batch = fitted[assignment["batch_id"]]
+        factor = sum(
+            assignment["weights"][index] * components[index]["rate_factor"]
+            for index in range(len(components))
+        )
+        batch_case = next(
+            item
+            for item in case["batch_manifest"]
+            if item["batch_id"] == assignment["batch_id"]
+        )
+        for temperature, observed in zip(
+            batch_case["temperatures_c"], sample["conversion"]
+        ):
+            rate = math.exp(
+                batch["ln_a"]
+                - batch["activation_energy_j_mol"] / (R * temperature)
+            ) * factor
+            predicted = 1.0 - math.exp(-rate * 600.0)
+            deltas.append(abs(predicted - observed))
+    return deltas
+
+
+def test_published_rate_law_reproduces_fixture_conversions(tmp_path):
+    """题面：「`rate_factor` 不是待拟合参数，也不能被忽略或再次缩放。」"""
+    case = _case()
+    proc, report, output_dir = _run(case, tmp_path)
+    deltas = _published_conversion_deltas(case, report)
+    assert proc.returncode == 0
+    assert deltas
+    assert max(deltas) < 2e-5
+
+
 def test_formula_uses_hill_order_and_compact_counts(tmp_path):
     """题面：「formula 使用 Hill 顺序，先写 C,再写 H，其余元素按字母顺序。」"""
     proc, report, output_dir = _run(_case(), tmp_path)

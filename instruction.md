@@ -44,6 +44,18 @@ weights 是成分顺序固定的非负数组，所有分量的和为 1。
 
 同一批次内的转化率与温度程序联合拟合 Arrhenius 截距和活化能。
 
+令成分顺序与输入 `components` 一致，样品经谱图分解得到 `weights`，则批次混合速率因子
+
+`factor = sum(weights[j] * rate_factor[j])`。
+
+取 `R = 8.31446261815324`，固定时间因子 `TAU = 600`（与温度输入的时间单位配套）。对每个温度 `T`，批次速率常数与转化率严格采用
+
+`k(T) = exp(ln_a - activation_energy_j_mol/(R*T)) * factor`
+
+`conversion(T) = 1 - exp(-k(T)*TAU)`。
+
+拟合只输出批次级 `ln_a` 与 `activation_energy_j_mol`；`rate_factor` 不是待拟合参数，也不能被忽略或再次缩放。
+
 formula 使用 Hill 顺序，先写 C,再写 H，其余元素按字母顺序。
 
 formula 是元素计数的规范化结果，计数为 1 时省略数字。
